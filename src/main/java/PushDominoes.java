@@ -99,7 +99,6 @@ public class PushDominoes {
         }
 
         if (sb.charAt(0) == 'L' && sb.charAt(len - 1) == 'R') {
-//            replaceChar(sb, 1, len, 'R');
             return sb.toString();
         }
 
