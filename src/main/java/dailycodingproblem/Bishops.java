@@ -25,7 +25,7 @@ package dailycodingproblem;
 public class Bishops {
 
     /**
-     * @param a chessboard
+     * @param a chessboard, 1 represents a bishop
      * @return
      */
     public int count(int[][] a) {
