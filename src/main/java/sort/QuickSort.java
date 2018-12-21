@@ -1,6 +1,7 @@
 package sort;
 
 import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class QuickSort {
 
@@ -32,7 +33,10 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int[] a = {4, 1, 1, 3, 4, 5, 6, 7, 5, 4, 3, 2, 1, 5, 6, 8, 8};
+
+        int[] a = new int[100];
+        for (int i = 0; i < a.length; i++) a[i] = ThreadLocalRandom.current().nextInt(10);
+
         sort(a);
         System.out.println(Arrays.toString(a));
     }
