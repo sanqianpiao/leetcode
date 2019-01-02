@@ -1,6 +1,8 @@
 import apple.laf.JRSUIUtils;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 public class TreeNodeTest {
@@ -11,5 +13,13 @@ public class TreeNodeTest {
         TreeNode root = TreeNode.buildTree(a);
         int[] ints = TreeNode.inOrder(root);
         assertArrayEquals(new int[]{6, 4, 6, 2, 5, 1, 6, 3, 6}, ints);
+    }
+
+    @Test
+    public void bst() {
+        Integer[] a = {5, 1, 4, null, null, 3, 6};
+        TreeNode root = TreeNode.buildTree(a);
+        int[] ints = TreeNode.inOrder(root);
+        System.out.println(Arrays.toString(ints));
     }
 }
