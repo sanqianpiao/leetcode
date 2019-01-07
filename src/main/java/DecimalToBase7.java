@@ -1,0 +1,2 @@
+public class DecimalToBase7 {
+}
