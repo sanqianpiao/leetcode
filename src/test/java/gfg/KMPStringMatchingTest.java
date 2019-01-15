@@ -19,7 +19,7 @@ public class KMPStringMatchingTest {
     }
 
     @Test
-    public void name() {
+    public void lpsTest() {
         int[] lps = inst.computeLPSArray("ABXAB");
         System.out.println(Arrays.toString(lps));
 
@@ -27,6 +27,9 @@ public class KMPStringMatchingTest {
         System.out.println(Arrays.toString(lps));
 
         lps = inst.computeLPSArray("abcdabca");
+        System.out.println(Arrays.toString(lps));
+
+        lps = inst.computeLPSArray("abacb");
         System.out.println(Arrays.toString(lps));
     }
 }

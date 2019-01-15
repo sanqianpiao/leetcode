@@ -1,14 +1,11 @@
 package gfg;
 
 public class KMPStringMatching {
-    public int KMPSearch(String pat, String txt) {
-        int M = pat.length();
-        int N = txt.length();
 
-        int j = 0;
+    public int KMPSearch(String pat, String txt) {
+        int N = txt.length(), M = pat.length(), i = 0, j = 0;
         int[] lps = computeLPSArray(pat);
 
-        int i = 0;
         while (i < N) {
             if (pat.charAt(j) == txt.charAt(i)) {
                 j++;
