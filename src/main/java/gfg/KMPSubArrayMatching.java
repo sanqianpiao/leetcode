@@ -20,7 +20,7 @@ public class KMPSubArrayMatching {
             // match
             if (j == m) {
                 indices.add(i - m);
-                j = 0;
+                j = lps[j - 1];
             }
 
             if (i < n && arr[i] != sub[j]) {

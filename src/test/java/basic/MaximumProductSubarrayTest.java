@@ -12,6 +12,6 @@ public class MaximumProductSubarrayTest {
     public void maxProduct() {
         int[] a = {-2};
         int i = inst.maxProduct(a);
-        assertEquals(-2, a);
+        assertEquals(-2, i);
     }
 }

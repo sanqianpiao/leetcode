@@ -1,11 +1,10 @@
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class LongestSubstringWithoutRepeatingCharactersTest {
+public class LongestSubstringWithoutRepeatingCharacter2Test {
 
-    LongestSubstringWithoutRepeatingCharacters inst = new LongestSubstringWithoutRepeatingCharacters();
+    LongestSubstringWithoutRepeatingCharacter2 inst = new LongestSubstringWithoutRepeatingCharacter2();
 
     @Test
     public void lengthOfLongestSubstring() {

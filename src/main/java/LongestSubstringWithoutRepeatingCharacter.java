@@ -1,4 +1,5 @@
 public class LongestSubstringWithoutRepeatingCharacter {
+
     public int lengthOfLongestSubstring(String s) {
         int n = s.length(), max = 0;
         int[] index = new int[26]; // current index of character

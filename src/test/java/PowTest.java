@@ -20,4 +20,9 @@ public class PowTest {
     public void name2() {
         assertEquals(0.25d, inst.myPow(2.0, -2), 0.01d);
     }
+
+    @Test
+    public void name3() {
+        assertEquals(0.25d, inst.myPow(1.0, -2), 1d);
+    }
 }

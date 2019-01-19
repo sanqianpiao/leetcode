@@ -4,9 +4,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class IslandsTest {
+public class Islands2Test {
 
-    Islands inst = new Islands();
+    Islands2 inst = new Islands2();
 
     @Test
     public void islands() {
