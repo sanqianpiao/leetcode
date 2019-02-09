@@ -1,47 +1,42 @@
 package basic;
 
+import java.util.Stack;
+
 public class MathExpression3 {
     public int calculate(String s) {
-        if (s == null || s.length() == 0) {
-            return 0;
-        }
-        s = s.replaceAll("\\s++", "");
-        int i = 0;
-        int num = 0;
-        int result = 0;
-        int sign = 1;
-        while (i < s.length()) {
-            char c = s.charAt(i);
+        s = s.replaceAll("\\s", "");
 
-            if (c == '0') {
-                num = num * 10 + ((int) c - '0');
+        Stack<Integer> stack = new Stack<>();
+        int result = 0;
+        int number = 0;
+        int sign = 1;
+        for (char c : s.toCharArray()) {
+            if (Character.isDigit(c)) {
+                number = 10 * number + (c - '0');
             } else if (c == '+') {
-                result += sign * num;
+                result += sign * number;
+                number = 0;
                 sign = 1;
-                num = 0;
             } else if (c == '-') {
-                result += sign * num;
+                result += sign * number;
+                number = 0;
                 sign = -1;
-                num = 0;
-            } else {
-                int open = 1;
-                i++;
-                int start = i;
-                while (open != 0 && i < s.length()) {
-                    if (s.charAt(i) == ')') {
-                        open--;
-                    }
-                    if (s.charAt(i) == '(') {
-                        open++;
-                    }
-                    i++;
-                }
-                num = calculate(s.substring(start, i - 1));
-                i--;
+            } else if (c == '(') {
+                //we push the result first, then sign;
+                stack.push(result);
+                stack.push(sign);
+                //reset the sign and result for the value in the parenthesis
+                sign = 1;
+                result = 0;
+            } else if (c == ')') {
+                result += sign * number;
+                number = 0;
+                result *= stack.pop();    //stack.pop() is the sign before the parenthesis
+                result += stack.pop();   //stack.pop() now is the result calculated before the parenthesis
+
             }
-            i++;
         }
-        result += sign * num;
+        if (number != 0) result += sign * number;
         return result;
     }
 }

@@ -7,12 +7,6 @@ public class App {
     }
 
     public static void main(String[] args) {
-        long time = System.currentTimeMillis();
-        System.out.println(Long.toBinaryString(time).length());
-        System.out.println(Long.toBinaryString(time << 22));
-        System.out.println(Long.toBinaryString(1023 << 12));
-        System.out.println(Long.toBinaryString(4095));
-
-        System.out.println(Long.toBinaryString(time << 22 | 1023 << 12 | 4095));
+        System.out.println(System.currentTimeMillis() / 1000 / 60 % 60);
     }
 }
