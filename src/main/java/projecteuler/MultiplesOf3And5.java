@@ -13,8 +13,12 @@ public class MultiplesOf3And5 {
         while (true) {
             m3 = i3 * 3;
             m5 = i5 * 5;
-            if (m3 > n || m5 > n) break;
-            if (m3 < m5) {
+            if (m3 >= n && m5 >= n) break;
+            if(m3 == m5) {
+                i3++;
+                i5++;
+                m = m3;
+            } else if (m3 < m5) {
                 i3++;
                 m = m3;
             } else {

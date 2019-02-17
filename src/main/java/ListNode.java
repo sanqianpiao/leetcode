@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class ListNode {
     int val;
     ListNode next;
@@ -17,5 +20,14 @@ public class ListNode {
             if (head == null) head = p;
         }
         return head;
+    }
+
+    public static int[] toArray(ListNode head) {
+        List<Integer> list = new ArrayList<>();
+        while(head != null) {
+            list.add(head.val);
+            head = head.next;
+        }
+        return list.stream().mapToInt(Integer::intValue).toArray();
     }
 }
