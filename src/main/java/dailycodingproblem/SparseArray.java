@@ -1,7 +1,6 @@
 package dailycodingproblem;
 
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
+import java.util.Arrays;
 
 /**
  * You have a large array with most of the elements as zero.
@@ -14,22 +13,35 @@ import java.util.concurrent.ConcurrentMap;
  */
 public class SparseArray {
 
-    private final ConcurrentMap<Integer, Integer> map = new ConcurrentHashMap<>();
     private final int size;
+    private int currSize = 0;
+    private final int DEFAULT_IF_NOT_FOUND = 0;
+    private final int[] keys;
+    private final int[] values;
 
     public SparseArray(int[] arr, int size) {
         this.size = size;
+        keys = new int[size];
+        values = new int[size];
+
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] != 0) map.put(i, arr[i]);
+            if (arr[i] != 0) {
+                set(i, arr[i]);
+            }
         }
     }
 
-    public void set(int i, int val) {
-        if (map.size() >= this.size) throw new IllegalStateException("Exceeding the size of array");
-        map.put(i, val);
+    public void set(int key, int val) {
+        if (currSize >= size) throw new IllegalStateException("Array is full");
+        if (key <= keys[currSize]) throw new IllegalArgumentException("Invalid key value");
+        keys[currSize] = key;
+        values[currSize] = val;
+        currSize++;
     }
 
-    public int get(int i) {
-        return map.getOrDefault(i, 0);
+    public int get(int key) {
+        int i = Arrays.binarySearch(keys, 0, currSize, key);
+        if (i >= 0) return values[i];
+        return DEFAULT_IF_NOT_FOUND;
     }
 }
