@@ -58,8 +58,7 @@ public class LFUCache<K, V> {
     }
 
     private void update(K key, V value) {
-        keyFreq.compute(key, (k, v) -> v == null ? 1 : v + 1);
-        Integer count = keyFreq.get(key);
+        Integer count = keyFreq.compute(key, (k, v) -> v == null ? 1 : v + 1);
         this.min = Math.min(min, count);
 
         //remove entry from previous count map
@@ -89,9 +88,9 @@ public class LFUCache<K, V> {
         Iterator<Map.Entry<K, V>> iterator = freqMap.get(min).entrySet().iterator();
 
         //The first entry is the eldest one
-        Map.Entry<K, V> next = iterator.next();
+        Map.Entry<K, V> first = iterator.next();
         iterator.remove();
-        keyFreq.remove(next.getKey());
+        keyFreq.remove(first.getKey());
     }
 
 }
