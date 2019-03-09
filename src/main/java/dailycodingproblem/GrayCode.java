@@ -42,5 +42,6 @@ public class GrayCode {
         System.out.println(Integer.toBinaryString((int) Math.pow(2, 3) - 1));
 
         System.out.println(graycode(3));
+        System.out.println(graycode(8));
     }
 }
